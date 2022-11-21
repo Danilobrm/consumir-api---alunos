@@ -69,21 +69,8 @@ function* registerRequest({ payload }) {
   }
 }
 
-function* loginFailure({ payload }) {
-  try {
-    const { navigate } = payload;
-    delete axios.defaults.headers.Authorization;
-    toast.success('Você está deslogado.');
-    navigate('/');
-  } catch (error) {
-    toast.error('Ocorreu um erro ao deslogar usuário.');
-    yield put(actions.loginFailure());
-  }
-}
-
 export default all([
   takeLatest(types.LOGIN_REQUEST, loginRequest),
   takeLatest(types.PERSIST_REHYDRATE, persistRehydrate),
   takeLatest(types.REGISTER_REQUEST, registerRequest),
-  takeLatest(types.LOGIN_FAILURE, loginFailure),
 ]);
