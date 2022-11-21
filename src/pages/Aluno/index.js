@@ -92,14 +92,15 @@ export default function Aluno() {
       toast.success('Aluno(a) criado(a) com sucesso!');
     } catch (err) {
       const status = get(err, 'response.status', 0);
-      const data = get(err, 'response.data', []);
-      const errors = get(data, 'errors', []);
+      const errors = get(err, 'response.data.errors', []);
 
       if (errors.length > 0) {
         errors.map((error) => toast.error(error));
         return;
       }
       toast.error('Erro desconhecido.');
+      // eslint-disable-next-line no-console
+      errors.map((error) => console.log(error));
 
       if (status === 401) dispatch(actions.loginFailure());
     }
