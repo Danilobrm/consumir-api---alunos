@@ -22,7 +22,7 @@ function* loginRequest({ payload }) {
 function persistRehydrate({ payload }) {
   const token = get(payload, 'auth.token', '');
   if (!token) return;
-  axios.defaults.headers.Authorization = `Bearer ${token}`;
+  axios.defaults.headers.authorization = `Bearer ${token}`;
 }
 
 function* registerRequest({ payload }) {
