@@ -61,9 +61,7 @@ export default function (state = initialState, action) {
     }
 
     default: {
-      const newState = { ...state };
-      newState.isLoading = false;
-      return newState;
+      return state;
     }
   }
 }
