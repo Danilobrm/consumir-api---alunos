@@ -99,8 +99,6 @@ export default function Aluno() {
         return;
       }
       toast.error('Erro desconhecido.');
-      // eslint-disable-next-line no-console
-      console.log(err);
 
       if (status === 401) dispatch(actions.loginFailure());
     }
