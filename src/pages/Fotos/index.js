@@ -23,7 +23,6 @@ export default function Fotos() {
         setFoto(data.Fotos[0] ? data.Fotos[0].url : '');
       } catch (err) {
         toast.error('Erro ao obter imagem');
-        console.log('deu erro');
         navigate('/');
       }
     };

@@ -56,7 +56,6 @@ export default function (state = initialState, action) {
 
     case types.REGISTER_FAILURE: {
       const newState = { ...state };
-      console.log('erro');
       newState.isLoading = false;
       return newState;
     }
